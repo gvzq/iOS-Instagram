@@ -8,7 +8,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -53,17 +53,17 @@
                     <connections>
                         <outlet property="passwordField" destination="QYR-G2-7qg" id="D8P-eA-S2d"/>
                         <outlet property="usernameField" destination="jTB-bK-hTL" id="Ct0-TA-Hiz"/>
-                        <segue destination="0Qt-Km-iRB" kind="presentation" identifier="loginSegue" id="ggj-4P-3rr"/>
+                        <segue destination="0Qt-Km-iRB" kind="presentation" identifier="loginSegue" id="mSi-WV-SZ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="268.5" y="309.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Instagram View Controller-->
         <scene sceneID="anm-eR-Y6y">
             <objects>
-                <viewController id="0Qt-Km-iRB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InstagramViewController" id="0Qt-Km-iRB" customClass="InstagramViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ZU-7i-EBQ"/>
                         <viewControllerLayoutGuide type="bottom" id="tgt-e8-Yek"/>
@@ -71,13 +71,28 @@
                     <view key="view" contentMode="scaleToFill" id="uN7-Ct-8ha">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6co-t2-r6Y">
+                                <rect key="frame" x="164" y="74" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6VM-a1-jqw">
+                                <rect key="frame" x="19" y="7" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="0Qt-Km-iRB" eventType="touchUpInside" id="Unr-pJ-d0Q"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9e-9j-Isi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759.5" y="309.5"/>
+            <point key="canvasLocation" x="769.5" y="309.5"/>
         </scene>
     </scenes>
 </document>

@@ -10,13 +10,25 @@ import UIKit
 import Parse
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UIImagePickerControllerDelegate {
 
     var window: UIWindow?
-
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // setup parse keys
+        Parse.setApplicationId("Instagram", clientKey: "gvzq")
+        
+        // check if user is logged in.
+        if PFUser.currentUser() != nil {
+            // if there is a logged in user then load the home view controller
+            print("Current user detected")
+            
+            let vc = storyboard.instantiateViewControllerWithIdentifier("InstagramViewController") as UIViewController
+            window?.rootViewController = vc
+        }
+
         
         // Initialize Parse
         // Set applicationId and server based on the values in the Heroku settings.
@@ -29,8 +41,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        //add observer when to logout
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: "userDidLogoutNotification", object: nil)
+
         return true
     }
+    
+    func userDidLogout() {
+            let vc = storyboard.instantiateInitialViewController()
+            window?.rootViewController = vc
+    }
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

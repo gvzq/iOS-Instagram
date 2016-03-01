@@ -25,7 +25,8 @@ class LoginViewController: UIViewController {
             } else {
                 print("User logged in successfully")
                 // display view controller that needs to shown after successful login
-                self.performSegueWithIdentifier("loginSegue ", sender: nil)
+                self.performSegueWithIdentifier("loginSegue", sender: nil)
+                
             }
         }
         
@@ -47,7 +48,7 @@ class LoginViewController: UIViewController {
             } else {
                 print("User Registered successfully")
                 // manually segue to logged in view
-                self.performSegueWithIdentifier("loginSegue ", sender: nil)
+                self.performSegueWithIdentifier("loginSegue", sender: nil)
 
             }
         }
